@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.social-icon {
+    @apply w-9 h-9 bg-[#0aa6c4] rounded-full flex items-center justify-center transition-all duration-200 hover:bg-[#062b5b];
+  }
+
+.tab-btn {
+    @apply pb-4 text-sm text-slate-500 flex items-center gap-2 border-b-2 border-transparent;
+  }
+  .active-tab {
+    @apply text-[#0b1c39] border-[#0b1c39] font-semibold;
+  }

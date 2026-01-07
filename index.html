@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LeadCRM – Sales CRM</title>
+   <link rel="shortcut icon" href="./images/LCRM-favicon.png" type="image/x-icon">
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              inter: ["Inter", "sans-serif"],
+            },
+            colors: {
+              primary: "#2563eb",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="font-inter text-gray-800">
+    <!-- ================= NAVBAR ================= -->
+    <header class="fixed w-full bg-white z-10 shadow-sm">
+      <div
+        class="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between"
+      >
+        <div class="font-bold text-primary w-48 h-16">
+          <img src="./images/LeadCRM-logo.webp" />
+        </div>
+
+        <nav class="hidden md:flex items-center space-x-8 font-medium relative">
+  <!-- Product Dropdown -->
+  <div class="group relative">
+    <button class="flex items-center gap-1 hover:text-primary">
+      Product
+      <svg class="w-4 h-4 mt-1" fill="none" stroke="currentColor" stroke-width="2"
+        viewBox="0 0 24 24">
+        <path d="M19 9l-7 7-7-7" />
+      </svg>
+    </button>
+
+    <!-- Dropdown -->
+    <div
+      class="absolute left-0 top-full mt-4 w-64
+             bg-white rounded-xl shadow-lg
+             opacity-0 invisible
+             group-hover:opacity-100 group-hover:visible
+             transition-all duration-200 z-50"
+    >
+      <ul class="p-4 space-y-3 text-sm text-gray-700">
+        <li class="hover:bg-gray-50 rounded-lg px-3 py-2">
+          CRM Data Enrichment
+        </li>
+        <li class="hover:bg-gray-50 rounded-lg px-3 py-2">
+          CRM Data Sync
+        </li>
+        <li class="hover:bg-gray-50 rounded-lg px-3 py-2">
+          Bulk Export & Enrichment
+        </li>
+        <li class="hover:bg-gray-50 rounded-lg px-3 py-2">
+          AI Productivity
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Features Dropdown -->
+  <div class="group relative">
+    <button class="flex items-center gap-1 hover:text-primary">
+      Pricing
+      <svg class="w-4 h-4 mt-1" fill="none" stroke="currentColor" stroke-width="2"
+        viewBox="0 0 24 24">
+        <path d="M19 9l-7 7-7-7" />
+      </svg>
+    </button>
+
+    <div
+      class="absolute left-0 top-full mt-4 w-56
+             bg-white rounded-xl shadow-lg
+             opacity-0 invisible
+             group-hover:opacity-100 group-hover:visible
+             transition-all duration-200 z-50"
+    >
+      <ul class="p-4 space-y-3 text-sm text-gray-700">
+        <li class="hover:bg-gray-50 rounded-lg px-3 py-2">Email Finder</li>
+        <li class="hover:bg-gray-50 rounded-lg px-3 py-2">Waterfall Enrichment</li>
+        <li class="hover:bg-gray-50 rounded-lg px-3 py-2">Custom Field Mapping</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Normal Links -->
+  <a href="#" class="hover:text-primary">Resources</a>
+<!-- Company Dropdown (Desktop) -->
+<div class="group relative">
+  <button class="flex items-center gap-1 hover:text-primary">
+    Company
+    <svg class="w-4 h-4 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M19 9l-7 7-7-7" />
+    </svg>
+  </button>
+
+  <div
+    class="absolute left-0 top-full mt-4 w-56
+           bg-white rounded-xl shadow-lg
+           opacity-0 invisible
+           group-hover:opacity-100 group-hover:visible
+           transition-all duration-200 z-50"
+  >
+    <ul class="p-4 space-y-3 text-sm text-gray-700">
+      <li class="hover:bg-gray-50 rounded-lg px-3 py-2"><a href="#">About Us</a></li>
+      <li class="hover:bg-gray-50 rounded-lg px-3 py-2"><a href="#">Careers</a></li>
+      <li class="hover:bg-gray-50 rounded-lg px-3 py-2"><a href="#">Team</a></li>
+      <li class="hover:bg-gray-50 rounded-lg px-3 py-2"><a href="#">Contact</a></li>
+    </ul>
+  </div>
+</div>
+</nav>
+
+
+        <div class="hidden md:flex gap-4">
+          <button
+            class="bg-[#2D96BC] text-white hover:bg-gray-800 hover:text-white px-6 py-3 rounded-lg text-md"
+          >
+            Get Your Free Account
+          </button>
+          <button
+  class="flex items-center gap-2 border border-[#2D96BC] text-[#2D96BC] px-4 py-2 rounded-lg"
+>
+  <img src="./images/Frame.png" class="w-4 h-4" alt="Login icon" />
+  <span class="text-md">Login</span>
+</button>
+
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="menuBtn" class="md:hidden">☰</button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+  <div class="flex flex-col px-6 py-4 space-y-4 text-gray-800">
+
+    <!-- Product Dropdown -->
+    <div>
+      <button
+        onclick="toggleDropdown('productDropdown')"
+        class="w-full flex items-center justify-between font-medium"
+      >
+        Product
+        <span id="productIcon">+</span>
+      </button>
+
+      <div id="productDropdown" class="hidden pl-4 mt-2 space-y-2 text-sm text-gray-600">
+        <a href="#" class="block">CRM Data Enrichment</a>
+        <a href="#" class="block">CRM Data Sync</a>
+        <a href="#" class="block">Bulk Export & Enrichment</a>
+        <a href="#" class="block">AI Productivity</a>
+      </div>
+    </div>
+
+    <!-- Features Dropdown -->
+    <div>
+      <button
+        onclick="toggleDropdown('featuresDropdown')"
+        class="w-full flex items-center justify-between font-medium"
+      >
+        Features
+        <span id="featuresIcon">+</span>
+      </button>
+
+      <div id="featuresDropdown" class="hidden pl-4 mt-2 space-y-2 text-sm text-gray-600">
+        <a href="#" class="block">Email Finder</a>
+        <a href="#" class="block">Waterfall Enrichment</a>
+        <a href="#" class="block">Custom Field Mapping</a>
+      </div>
+    </div>
+
+    <!-- Normal Links -->
+    <a href="#" class="font-medium">Pricing</a>
+    <a href="#" class="font-medium">Contact</a>
+
+    <!-- CTA -->
+    <button
+  class="flex items-center gap-2 border border-[#2D96BC] text-[#2D96BC] mx-auto px-40 py-2 rounded-lg"
+>
+  <img src="./images/Frame.png" class="w-4 h-4" alt="Login icon" />
+  <span class="text-md">Login</span>
+  </div>
+</div>
+
+    </header>
+
+    <!-- ================= HERO ================= -->
+    <section
+      class="w-full bg-[url('/images/imgi_97_leadcrm-bg-homepage.webp')] relative overflow-hidden bg-cover"
+    >
+      <!-- Background subtle grid -->
+      <div
+        class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:32px_32px] opacity-40"
+      ></div>
+
+      <div class="relative max-w-7xl mx-auto px-6 py-20 text-center">
+        <!-- Top badge -->
+        <div
+          class="inline-flex items-center gap-2 px-4 py-1.5 mt-10 rounded-full border border-blue-200 bg-blue-50 text-[#63657E] text-sm font-medium mb-6"
+        >
+          <span>🚀</span>
+          <span>Thousands of Professionals using LeadCRM</span>
+        </div>
+
+        <!-- Heading -->
+        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+  LinkedIn CRM Integration<br />
+  Capture, Sync and Enrich in
+  <span class="text-sky-400 relative inline-block">
+    Both Ways
+    <span class="absolute  -bottom-4 -left-2 w-full h-3 bg-[url('/images/imgi_98_line-1.webp')] bg-no-repeat bg-center bg-contain"></span>
+  </span>
+</h1>
+
+        <!-- Subtitle -->
+        <p class="mt-6 max-w-3xl mx-auto text-gray-600 text-base md:text-lg">
+          Automatically sync LinkedIn prospects to your CRM and overlay existing
+          CRM contacts on LinkedIn profiles. Complete bi-directional integration
+          with HubSpot, Salesforce, and Pipedrive.
+        </p>
+
+        <!-- Works with -->
+        <div class="mt-8 flex justify-center">
+          <div
+            class="flex items-center gap-3 px-8 py-3 rounded-xl bg-gradient-to-r from-sky-400 via-indigo-500 to-pink-500 text-white"
+          >
+            <span class="text-md font-medium text-black">Works with</span>
+            <div class="flex gap-2">
+              <span
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-white text-orange-500 text-xs font-bold"
+              >
+                <img src="./images/Group 1171278188.png" />
+              </span>
+              <span
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-white text-green-600 text-xs font-bold"
+              >
+                <img src="./images/Group 1171278189.png" />
+              </span>
+              <span
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-white text-blue-600 text-xs font-bold"
+              >
+                <img src="./images/Salesforce Integration.png" />
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ratings -->
+        <div class="mt-6 flex flex-wrap justify-center gap-6">
+          <div class="flex items-center gap-2 text-sm text-gray-700">
+            <img
+              src="./images/imgi_38_ratings-section-768x78.webp"
+              class="h-8 w-100"
+            />
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+          <button
+            class="flex items-center gap-2 px-5 py-2 rounded-xl bg-gray-900 text-white hover:bg-gray-800 transition"
+          >
+            <span class="text-start"
+              >Available in <br />
+              Chrome Web Store</span
+            >
+            <img
+              src="./images/chrome.png"
+              class="w-8 bg-white px-1 py-1 rounded-2xl"
+            />
+          </button>
+
+          <button
+            class="px-6 py-3 rounded-xl bg-lime-400 text-gray-900 font-semibold hover:bg-lime-500 transition"
+          >
+            Get a Free Trial Now!
+          </button>
+        </div>
+      </div>
+    </section>
+
+   <section class="w-full bg-white mt-8 border-b">
+  <marquee
+    behavior="scroll"
+    direction="left"
+    scrollamount="5"
+    class="py-4"
+  >
+    <div class="flex items-center gap-x-20 whitespace-nowrap px-6">
+      
+      <!-- ===== SET 1 ===== -->
+      <div class="flex items-center gap-3 text-sm text-slate-600">
+        <span class="flex h-9 w-8 items-center justify-center rounded-full bg-indigo-100">
+          <img src="./images/imgi_44_feature-leadcrm-6.webp" />
+        </span>
+        <span>Access to <span class="font-semibold text-slate-900">700M+ Contacts</span></span>
+      </div>
+
+      <div class="flex items-center gap-3 text-sm text-slate-600">
+        <span class="flex h-9 w-8 items-center justify-center rounded-full bg-purple-100">
+          <img src="./images/arrow2.png" />
+        </span>
+        <span><span class="font-semibold text-indigo-600">One click push</span> to CRM</span>
+      </div>
+
+      <div class="flex items-center gap-3 text-sm text-slate-600">
+        <span class="flex h-9 w-8 items-center justify-center rounded-full bg-sky-100">
+          <img src="./images/imgi_40_feature-leadcrm-2.webp" />
+        </span>
+        <span><span class="font-semibold text-slate-900">Custom Field</span> Mapping</span>
+      </div>
+
+      <div class="flex items-center gap-3 text-sm text-slate-600">
+        <span class="flex h-9 w-8 items-center justify-center rounded-full bg-blue-100">
+          <img src="./images/imgi_42_feature-leadcrm-4.webp" />
+        </span>
+        <span>Advanced <span class="font-semibold text-slate-900">Waterfall Enrichment</span></span>
+      </div>
+
+      <div class="flex items-center gap-3 text-sm text-slate-600">
+        <span class="flex h-9 w-8 items-center justify-center rounded-full bg-blue-100">
+          <img src="./images/imgi_41_feature-leadcrm-3.webp" />
+        </span>
+        <span>Instant <span class="font-semibold text-slate-900">Email Finder</span></span>
+      </div>
+
+      <!-- ===== SET 2 (DUPLICATE) ===== -->
+      <div class="flex items-center gap-3 text-sm text-slate-600">
+        <span class="flex h-9 w-8 items-center justify-center rounded-full bg-indigo-100">
+          <img src="./images/imgi_44_feature-leadcrm-6.webp" />
+        </span>
+        <span>Access to <span class="font-semibold text-slate-900">700M+ Contacts</span></span>
+      </div>
+
+      <div class="flex items-center gap-3 text-sm text-slate-600">
+        <span class="flex h-9 w-8 items-center justify-center rounded-full bg-purple-100">
+          <img src="./images/arrow2.png" />
+        </span>
+        <span><span class="font-semibold text-indigo-600">One click push</span> to CRM</span>
+      </div>
+
+      <div class="flex items-center gap-3 text-sm text-slate-600">
+        <span class="flex h-9 w-8 items-center justify-center rounded-full bg-sky-100">
+          <img src="./images/imgi_40_feature-leadcrm-2.webp" />
+        </span>
+        <span><span class="font-semibold text-slate-900">Custom Field</span> Mapping</span>
+      </div>
+
+      <div class="flex items-center gap-3 text-sm text-slate-600">
+        <span class="flex h-9 w-8 items-center justify-center rounded-full bg-blue-100">
+          <img src="./images/imgi_42_feature-leadcrm-4.webp" />
+        </span>
+        <span>Advanced <span class="font-semibold text-slate-900">Waterfall Enrichment</span></span>
+      </div>
+
+      <div class="flex items-center gap-3 text-sm text-slate-600">
+        <span class="flex h-9 w-8 items-center justify-center rounded-full bg-blue-100">
+          <img src="./images/imgi_41_feature-leadcrm-3.webp" />
+        </span>
+        <span>Instant <span class="font-semibold text-slate-900">Email Finder</span></span>
+      </div>
+
+    </div>
+  </marquee>
+</section>
+
+<section id="secondSection">
+<!-- Floating CTA -->
+<div
+  id="stickyCTA"
+  class="fixed bottom-8 left-1/2 -translate-x-1/2 z-40
+         w-[92%] max-w-5xl
+         bg-white rounded-2xl shadow-xl
+         px-6 py-6 md:px-10
+         opacity-0 pointer-events-none
+         transition-all duration-500"
+>
+  <!-- Top Section -->
+  <div
+    class="bg-[#FFEEFE] rounded-xl
+           px-6 py-4
+           flex flex-col md:flex-row
+           items-center justify-between gap-4"
+  >
+    <!-- Left -->
+    <div class="flex items-center  justify-between gap-3">
+      <div class="flex justify-around ">
+        <img
+          src="/images/imgi_75_Group-2147224151.webp"
+          class="h-10 img-fluid  sm:w-full w-auto rounded-full border-2 border-white"
+          alt=""
+        />
+      </div>
+
+      <p class="text-sm md:text-base mx-auto mr-2  justify-center font-semibold text-gray-900">
+        Join with our Thousands of professionals Now !
+      </p>
+    </div>
+
+    <!-- Button -->
+    <button
+      class="bg-[#9be44d] hover:bg-[#8bd63f]
+             text-[#0b1c39] font-semibold
+             px-6 py-3 rounded-xl
+             whitespace-nowrap transition"
+    >
+      Get a Free Trial Now!
+    </button>
+  </div>
+
+  <!-- Bottom Info Row -->
+  <div
+    class="mt-5 flex flex-col md:flex-row
+           items-center justify-center gap-6
+           text-sm text-gray-600"
+  >
+    <div class="flex items-center gap-2">
+      <img
+        src="./images/imgi_76_no-credit-card-icon.webp"
+        class="w-5 h-5"
+        alt=""
+      />
+      <span><strong>No Credit Card</strong> Required</span>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <img
+        src="./images/imgi_76_no-credit-card-icon.webp"
+        class="w-5 h-5"
+        alt=""
+      />
+      <span><strong>14 Days Free</strong> Trial</span>
+    </div>
+  </div>
+</div>
+
+</section>
+
+
+    <!-- ================= FEATURES ================= -->
+    <section class="bg-white py-16">
+      <div class="max-w-7xl mx-auto px-6">
+        <!-- Heading -->
+        <h2
+          class="text-center text-2xl md:text-3xl font-semibold text-[#0b1c39] mb-14"
+        >
+          Every LinkedIn Prospector faces these daily challenges
+        </h2>
+
+        <!-- Comparison Wrapper -->
+        <div class="grid lg:grid-cols-2 gap-10 items-start">
+          <!-- WITHOUT LeadCRM -->
+          <div class="bg-[#fff5f5] rounded-2xl p-6 md:p-8 shadow-md">
+            <!-- Image -->
+            <img
+              src="/images/imgi_46_Without-LeadCRM-768x299.webp"
+              alt="Without LeadCRM"
+              class="w-full rounded-xl mb-6"
+            />
+
+            <h3 class="text-red-500 font-semibold mb-4">Without LeadCRM</h3>
+
+            <ul class="space-y-4 text-sm text-slate-700">
+              <li class="flex gap-3">
+                <span class="text-red-500 font-bold">✕</span>
+                <div>
+                  <p class="font-medium">
+                    Manual Data Entry
+                    <span
+                      class="ml-2 text-sm bg-red-100 text-red-500 px-2 py-1 rounded-full"
+                    >
+                      3+ hours wasted daily
+                    </span>
+                  </p>
+                  <p class="text-sm text-slate-500">
+                    Copying LinkedIn contacts to CRM manually plus losing
+                    conversation history
+                  </p>
+                </div>
+              </li>
+
+              <li class="flex gap-3">
+                <span class="text-red-500 font-bold">✕</span>
+                <div>
+                  <p class="font-medium">
+                    Incomplete Data
+                    <span
+                      class="ml-2 text-sm bg-red-100 text-red-500 px-2 py-1 rounded-full"
+                    >
+                      60% data incomplete
+                    </span>
+                  </p>
+                  <p class="text-sm text-slate-500">
+                    Missing emails and phone numbers from LinkedIn profiles
+                  </p>
+                </div>
+              </li>
+
+              <li class="flex gap-3">
+                <span class="text-red-500 font-bold">✕</span>
+                <div>
+                  <p class="font-medium">
+                    No CRM Visibility
+                    <span
+                      class="ml-2 text-sm bg-red-100 text-red-500 px-2 py-1 rounded-full"
+                    >
+                      Zero context available
+                    </span>
+                  </p>
+                  <p class="text-sm text-slate-500">
+                    Can’t see existing CRM contacts when browsing LinkedIn
+                  </p>
+                </div>
+              </li>
+
+              <li class="flex gap-3">
+                <span class="text-red-500 font-bold">✕</span>
+                <div>
+                  <p class="font-medium">
+                    Limited Productivity
+                    <span
+                      class="ml-2 text-sm bg-red-100 text-red-500 px-2 py-1 rounded-full"
+                    >
+                      No smart assistance
+                    </span>
+                  </p>
+                  <p class="text-sm text-slate-500">
+                    Writing messages manually without AI support
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- WITH LeadCRM -->
+          <div
+            class="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-slate-100 relative"
+          >
+            <!-- Image -->
+            <img
+              src="/images/With-LeadCRM.webp"
+              alt="With LeadCRM"
+              class="w-full rounded-xl mb-6"
+            />
+
+            <h3
+              class="text-green-600 font-semibold mb-4 flex items-center gap-2"
+            >
+              With LeadCRM
+              <span
+                class="text-sm bg-green-100 text-green-600 px-2 py-0.5 rounded-full"
+              >
+                Saved
+              </span>
+            </h3>
+
+            <ul class="space-y-4 text-sm text-slate-700">
+              <li class="flex gap-3">
+                <span class="text-green-600 font-bold">✔</span>
+                <div>
+                  <p class="font-medium">Complete Bi-Directional Sync</p>
+                  <p class="text-sm text-slate-500">
+                    Automatically sync contacts, messages, and notes in real
+                    time
+                  </p>
+                </div>
+              </li>
+
+              <li class="flex gap-3">
+                <span class="text-green-600 font-bold">✔</span>
+                <div>
+                  <p class="font-medium">700M+ Contacts + Enrichment</p>
+                  <p class="text-sm text-slate-500">
+                    Get verified emails and phone numbers from a global database
+                  </p>
+                </div>
+              </li>
+
+              <li class="flex gap-3">
+                <span class="text-green-600 font-bold">✔</span>
+                <div>
+                  <p class="font-medium">CRM Overlay on LinkedIn</p>
+                  <p class="text-sm text-slate-500">
+                    See full CRM insights directly on LinkedIn profiles
+                  </p>
+                </div>
+              </li>
+
+              <li class="flex gap-3">
+                <span class="text-green-600 font-bold">✔</span>
+                <div>
+                  <p class="font-medium">
+                    AI Response + Templates + Bulk Exports
+                  </p>
+                  <p class="text-sm text-slate-500">
+                    Save time with AI-crafted replies and one-click exports
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="mt-14 text-center">
+          <button
+            class="bg-[#b8f44a] hover:bg-[#a6e63d] hover:-px-8 text-[#0b1c39] font-semibold px-8 py-3 shadow-lg rounded-xl transition"
+          >
+            Start Using LeadCRM Now
+          </button>
+
+          <p class="mt-4 text-sm text-green-700 font-medium">
+            Save 40+ hours every month
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-[#f3f7ff] py-16">
+      <div class="max-w-7xl mx-auto px-6">
+        <!-- Heading -->
+        <div class="mb-12">
+          <h2 class="text-4xl md:text-3xl font-semibold text-[#0b1c39]">
+            How it Works
+          </h2>
+          <p class="text-sm text-slate-500 mt-1">
+            From setup to success in 4 simple steps
+          </p>
+        </div>
+
+   
+         <!-- <div class="text-st\art justify-start">
+           <img src="./images/Ball.png" class="opacity-5 w-40 h-40 z-30 ">
+         </div> -->
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4 ">
+          <!-- Card Base Classes -->
+          <!-- reuse same pattern for all cards -->
+          
+        
+          <!-- Step 1 -->
+          <div
+            class="bg-white rounded-2xl p-6 text-center shadow-md border border-transparent transition-all duration-300 ease-out hover:-translate-y-2 hover:border-sky-500 hover:shadow-xl"
+          >
+            <div class="text-6xl font-bold text-sky-500 mb-4 italic">1</div>
+
+            <h3 class="font-semibold text-[#0b1c39] mb-2 text-xl">
+              Install the Extension
+            </h3>
+            <p class="text-md text-slate-500 mb-4">
+              Add LeadCRM Chrome and connect your CRM in 2 minutes—secure and
+              seamless.
+            </p>
+
+            <img
+              src="/images/install-the-extension.webp"
+              alt="Install Extension"
+              class="mx-auto rounded-xl"
+            />
+          </div>
+
+          <!-- Step 2 -->
+          <div
+            class="bg-white rounded-2xl p-6 text-center shadow-md border border-transparent transition-all duration-300 ease-out hover:-translate-y-2 hover:border-sky-500 hover:shadow-xl"
+          >
+            <div class="text-6xl font-bold text-sky-500 mb-4 italic">2</div>
+
+            <h3 class="font-semibold text-[#0b1c39] mb-2 text-xl">
+              Browse LinkedIn
+            </h3>
+            <p class="text-md text-slate-500 mb-4">
+              Use LinkedIn normally. Our extension auto-captures data instantly.
+            </p>
+
+            <img
+              src="/images/Browse-LinkedIn.webp"
+              alt="Browse LinkedIn"
+              class="mx-auto rounded-xl"
+            />
+          </div>
+
+          <!-- Step 3 -->
+          <div
+            class="bg-white rounded-2xl p-6 text-center shadow-md border border-transparent transition-all duration-300 ease-out hover:-translate-y-2 hover:border-sky-500 hover:shadow-xl"
+          >
+            <div class="text-6xl font-bold text-sky-500 mb-4 italic">3</div>
+
+            <h3 class="font-semibold text-[#0b1c39] mb-2 text-xl">
+              Get Enriched Data
+            </h3>
+            <p class="text-md text-slate-500 mb-4">
+              Enrich profiles with verified emails, phones, and company data.
+            </p>
+
+            <img
+              src="/images/Get-Enriched-Data.webp"
+              alt="Enriched Data"
+              class="mx-auto rounded-xl"
+            />
+          </div>
+
+          <!-- Step 4 -->
+          <div
+            class="bg-white rounded-2xl p-6 text-center shadow-md border border-transparent transition-all duration-300 ease-out hover:-translate-y-2 hover:border-sky-500 hover:shadow-xl"
+          >
+            <div class="text-6xl font-bold text-sky-500 mb-4 italic">4</div>
+
+            <h3 class="font-semibold text-[#0b1c39] mb-2 text-xl">
+              Sync to CRM Instantly
+            </h3>
+            <p class="text-md text-slate-500 mb-4">
+              Prospect data syncs instantly with history, tracking, and AI
+              follow-ups.
+            </p>
+
+            <img
+              src="/images/Sync-to-CRM-Instantly.webp"
+              alt="Sync CRM"
+              class="mx-auto rounded-xl h-44"
+            />
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="mt-14 text-center">
+          <button
+            class="bg-[#b8f44a] hover:bg-[#a6e63d] text-[#0b1c39] font-bold px-8 py-3 rounded-xl transition"
+          >
+            Try LeadCRM Now <span class="ml-3"> -></span>
+          </button>
+          <div class="absolute top-[2350px] right-20">
+            <img src="./images/image.png" class="w-20 h-58 mt-8" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white py-16">
+      <div class="max-w-7xl mx-auto px-6">
+        <!-- Header -->
+        <div class="flex items-center justify-between mb-10">
+          <h2 class="text-3xl font-semibold text-[#0b1c39]">
+            What people are saying about LeadCRM
+          </h2>
+
+          <!-- Arrows -->
+          <div class="flex gap-3">
+  <button
+    id="prevBtn"
+    class="w-10 h-10 flex items-center justify-center rounded-full border border-slate-300 hover:bg-slate-100 transition"
+  >
+    <i class="fa fa-chevron-left"></i>
+  </button>
+  <button
+    id="nextBtn"
+    class="w-10 h-10 flex items-center justify-center rounded-full bg-[#0b1c39] text-white hover:bg-[#162d5a] transition"
+  >
+    <i class="fa fa-chevron-right"></i>
+  </button>
+</div>
+        </div>
+
+        <!-- Slider -->
+        <div class="overflow-hidden">
+          <div
+            id="slider"
+            class="flex gap-6 transition-transform duration-500 ease-in-out"
+          >
+            <!-- Card 1 -->
+            <div
+              class="min-w-[100%] md:min-w-[48%] lg:min-w-[32%] bg-[#fbf4fb] rounded-2xl p-6"
+            >
+              <p class="text-sm text-slate-700 leading-relaxed mb-6">
+                “Reliable Data Sync I've only had to refresh the extension a
+                couple of times. The multi-contact enrichment is still a huge
+                plus, and support is very responsive.”
+              </p>
+
+              <div class="flex items-center gap-2 mb-8">
+                <img
+                  src="/images/capterra-icon.png"
+                  class="w-8 bg-white p-2 rounded-lg"
+                />
+                <span class="text-gray-800 text-xl">★★★★★</span>
+              </div>
+
+              <hr class="mb-4" />
+
+              <div class="flex items-center gap-3">
+                <img src="/images/1 (1).png" class="w-10 h-10 rounded-full" />
+                <div>
+                  <p class="font-bold text-md text-[#0b1c39]">David Fincher</p>
+                  <p class="text-xs text-slate-500">On Capterra</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div
+              class="min-w-[100%] md:min-w-[48%] lg:min-w-[32%] bg-[#fbf4fb] rounded-2xl p-6"
+            >
+              <p class="text-sm text-slate-700 leading-relaxed mb-6">
+                “My experience with LeadCRM has been excellent. It streamlined
+                my workflow, improved lead tracking, and made follow-ups more
+                efficient.”
+              </p>
+
+              <div class="flex items-center gap-2 mb-8">
+                <img
+                  src="/images/capterra-icon.png"
+                  class="w-8 bg-white p-2 rounded-lg"
+                />
+                <span class="text-gray-800 text-xl">★★★★★</span>
+              </div>
+
+              <hr class="mb-4" />
+
+              <div class="flex items-center gap-3">
+                <img src="/images/1 (2).png" class="w-10 h-10 rounded-full" />
+                <div>
+                  <p class="font-bold text-md text-[#0b1c39]">
+                    Lillian Williams
+                  </p>
+                  <p class="text-xs text-slate-500">On Capterra</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div
+              class="min-w-[100%] md:min-w-[48%] lg:min-w-[32%] bg-[#fbf4fb] rounded-2xl p-6"
+            >
+              <p class="text-sm text-slate-700 leading-relaxed mb-6">
+                “Reliable Data Sync. The enrichment accuracy is impressive and
+                saves us hours every week.”
+              </p>
+
+              <div class="flex items-center gap-2 mb-8">
+                <img
+                  src="/images/capterra-icon.png"
+                  class="w-8 bg-white p-2 rounded-lg"
+                />
+                <span class="text-gray-800 text-xl">★★★★★</span>
+              </div>
+
+              <hr class="mb-4" />
+
+              <div class="flex items-center gap-3">
+                <img src="/images/1 (3).png" class="w-10 h-10 rounded-full" />
+                <div>
+                  <p class="font-bold text-md text-[#0b1c39]">Michael</p>
+                  <p class="text-xs text-slate-500">On Capterra</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 1 -->
+            <div
+              class="min-w-[100%] md:min-w-[48%] lg:min-w-[32%] bg-[#fbf4fb] rounded-2xl p-6"
+            >
+              <p class="text-sm text-slate-700 leading-relaxed mb-6">
+                “Reliable Data Sync I've only had to refresh the extension a
+                couple of times. The multi-contact enrichment is still a huge
+                plus, and support is very responsive.”
+              </p>
+
+              <div class="flex items-center gap-2 mb-8">
+                <img
+                  src="/images/capterra-icon.png"
+                  class="w-8 bg-white p-2 rounded-lg"
+                />
+                <span class="text-gray-800 text-xl">★★★★★</span>
+              </div>
+
+              <hr class="mb-4" />
+
+              <div class="flex items-center gap-3">
+                <img src="/images/1 (1).png" class="w-10 h-10 rounded-full" />
+                <div>
+                  <p class="font-bold text-md text-[#0b1c39]">David Fincher</p>
+                  <p class="text-xs text-slate-500">On Capterra</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div
+              class="min-w-[100%] md:min-w-[48%] lg:min-w-[32%] bg-[#fbf4fb] rounded-2xl p-6"
+            >
+              <p class="text-sm text-slate-700 leading-relaxed mb-6">
+                “My experience with LeadCRM has been excellent. It streamlined
+                my workflow, improved lead tracking, and made follow-ups more
+                efficient.”
+              </p>
+
+              <div class="flex items-center gap-2 mb-8">
+                <img
+                  src="/images/capterra-icon.png"
+                  class="w-8 bg-white p-2 rounded-lg"
+                />
+                <span class="text-gray-800 text-xl">★★★★★</span>
+              </div>
+
+              <hr class="mb-4" />
+
+              <div class="flex items-center gap-3">
+                <img src="/images/1 (2).png" class="w-10 h-10 rounded-full" />
+                <div>
+                  <p class="font-bold text-md text-[#0b1c39]">
+                    Lillian Williams
+                  </p>
+                  <p class="text-xs text-slate-500">On Capterra</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div
+              class="min-w-[100%] md:min-w-[48%] lg:min-w-[32%] bg-[#fbf4fb] rounded-2xl p-6"
+            >
+              <p class="text-sm text-slate-700 leading-relaxed mb-6">
+                “Reliable Data Sync. The enrichment accuracy is impressive and
+                saves us hours every week.”
+              </p>
+
+              <div class="flex items-center gap-2 mb-8">
+                <img
+                  src="/images/capterra-icon.png"
+                  class="w-8 bg-white p-2 rounded-lg"
+                />
+                <span class="text-gray-800 text-xl">★★★★★</span>
+              </div>
+
+              <hr class="mb-4" />
+
+              <div class="flex items-center gap-3">
+                <img src="/images/1 (3).png" class="w-10 h-10 rounded-full" />
+                <div>
+                  <p class="font-bold text-md text-[#0b1c39]">Michael</p>
+                  <p class="text-xs text-slate-500">On Capterra</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <!-- Heading -->
+        <div class="text-center mb-12">
+          <img src="./images/icon.webp" class="relative -left-40 top-16">
+          <h2 class="text-3xl md:text-4xl font-semibold text-[#0b1c39]">
+            Complete LinkedIn Sales Solutions
+          </h2>
+          <p class="text-slate-500 mt-2">
+            Everything you need for professional LinkedIn prospecting
+          </p>
+        </div>
+
+        <!-- Tabs -->
+        <div
+          class="flex flex-wrap justify-center gap-10 space-x-16 border-b mb-10"
+        >
+          <button data-tab="enrichment" class="tab-btn active-tab flex mb-4">
+            <img
+              src="./images/201d689debd5b20c5bf4f606da681accea090bf7.png"
+              class="w-10 h-10 mx-2 -mt-1"
+            />
+            CRM Data Enrichment
+          </button>
+
+          <button data-tab="sync" class="tab-btn flex mb-4">
+            <img
+              src="./images/730fa30c0870e5663abff213bc6047b6edd9c37e.png"
+              class="w-8 h-8 mx-2 -mt-1"
+            />
+            CRM Data Sync
+          </button>
+
+          <button data-tab="bulk" class="tab-btn flex mb-4">
+            <img
+              src="./images/14b7d9142d74985b63e1d2f877c5bbb66a57d639.png"
+              class="w-10 h-10 mx-2 -mt-1"
+            />
+           Bulk Export & Enrichment
+          </button>
+
+          <button data-tab="ai" class="tab-btn flex mb-4">
+            <img
+              src="./images/imgi_45_feature-leadcrm-7.webp"
+              class="w-10 h-10 mx-2 -mt-1"
+            />
+            AI Productivity
+          </button>
+        </div>
+
+        <!-- Info -->
+        <p class="text-slate-600 mb-8">
+          It’s hard to find the accurate contact data for every prospects by
+          <span class="text-red-500 bg-red-100 px-2 py-1 rounded-md text-xs">
+            Incomplete Data
+          </span>
+        </p>
+
+        <!-- TAB CONTENT -->
+        <div class="tab-content" id="enrichment">
+          <div class="grid lg:grid-cols-2 gap-8">
+            <div class="bg-[#f4f7ff] rounded-2xl p-6">
+              <h3 class="font-semibold text-[#0b1c39] mb-2">
+                How LeadCRM enriches your CRM data
+              </h3>
+              <a class="text-[#097737] font-medium"
+                >Try Data Enrichment
+                <span class="text-[#097737] mr-4"> > </span></a
+              >
+
+              <div class="grid md:grid-cols-2 gap-4 mt-6">
+                <div class="bg-white rounded-xl p-2 shadow">
+                  <img
+                    src="./images/Group 2147224128.png"
+                    class="h-[350px] w-full object-contain"
+                  />
+                </div>
+                <div class="bg-white rounded-xl p-2 shadow">
+                  <img src="./images/Frame 1171278339.png" />
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-[#f4f7ff] rounded-2xl p-6">
+              <p class="text-slate-600 mb-8 text-md font-medium">
+                If it does not works for you ! try our <br />
+                <span class="text-[#097737] mr-4">
+                  Advanced Waterfall Enrichment >
+                </span>
+              </p>
+              <div class="bg-white rounded-xl p-6 shadow">
+                <img src="./images/CRM-Data-Enrichment-1024x632.webp" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sync -->
+
+
+        <div class="tab-content hidden" id="sync">
+  
+          <div class="grid lg:grid-cols-2 gap-8">
+            <div class="bg-[#FFFFCE] rounded-2xl p-6">
+              <h3 class="font-semibold text-[#0b1c39] mb-2">
+                The Solution? LeadCRM's Instant Data Sync.
+              </h3>
+              <a class="text-[#097737] font-medium"
+                >Try LeadCRM Data Sync</a>
+                <span class="text-[#097737] mr-4"> > </span></a
+              >
+
+              <div class="grid md:grid-cols-2 gap-4 mt-6">
+                <div class="bg-white rounded-xl p-2 shadow">
+                  <img
+                    src="./images/Group 2147224128.png"
+                    class="h-[350px] w-full object-contain"
+                  />
+                </div>
+                <div class="bg-white rounded-xl p-2 shadow">
+                  <img src="./images/Frame 1171278339.png" />
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-[#FFFFCE] rounded-2xl p-6">
+              <p class="text-slate-600 mb-8 text-md font-medium">
+                Unlock instant CRM insights on every profile you visit. <br />
+                <span class="text-[#097737] mr-4">
+                   >Try LeadCRM Data Sync
+                </span>
+              </p>
+              <div class="bg-white rounded-xl p-6 shadow">
+                <img src="./images/CRM-Data-Enrichment-1024x632.webp" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bulk -->
+        <div class="tab-content hidden" id="bulk">
+          <div class="grid lg:grid-cols-2 gap-8">
+            <div class="bg-[#ECEAFF] rounded-2xl p-6">
+              <h3 class="font-semibold text-[#0b1c39] mb-2">
+               Enrich & Export 250 Profiles in Just 60 Seconds.
+              </h3>
+              <a class="text-[#097737] font-medium"
+                >Try LeadCRM  Bulk Export
+                <span class="text-[#097737] mr-4"> > </span></a
+              >
+
+              <div class="grid md:grid-cols-1 gap-4 mt-6">
+                <div class="bg-white rounded-xl p-2 shadow">
+                  <img
+                    src="./images/Group 2147224128.png"
+                    class="h-[350px] w-full object-contain"
+                  />
+                </div>
+                
+              </div>
+            </div>
+
+            <div class="bg-[#ECEAFF] rounded-2xl p-6">
+              <p class="text-slate-600 mb-8 text-md font-medium">
+               Export & enrich profiles to the CRM or G-Sheet<br />
+                <span class="text-[#097737] mr-4">
+                  Try LeadCRM  Bulk Export <span class="text-[#097737] mr-4"> > </span> 
+                </span>
+              </p>
+              <div class="bg-white rounded-xl p-6 shadow">
+                <img src="./images/CRM-Data-Enrichment-1024x632.webp" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI -->
+        <div class="tab-content hidden" id="ai">
+         <div class="grid lg:grid-cols-2 gap-8">
+            <div class="bg-[#FFE9FE] rounded-2xl p-6">
+              <h3 class="font-semibold text-[#0b1c39] mb-2">
+                Get the same high-impact engagement in 80% less time.
+              </h3>
+              <a class="text-[#097737] font-medium"
+                >Try LeadCRM AI Resposne
+                <span class="text-[#097737] mr-4"> > </span></a
+              >
+
+              <div class="grid md:grid-cols-1 gap-4 mt-6">
+                <div class="bg-white rounded-xl p-2 shadow">
+                  <img
+                    src="./images/AI-Comment-image-1-1024x804.webp"
+                    class="h-[350px] w-full object-contain"
+                  />
+                </div>
+            
+              </div>
+            </div>
+
+            <div class="bg-[#FFE9FE] rounded-2xl p-6">
+              <p class="text-slate-600 mb-8 text-md font-medium">
+               Use Shortcuts to reply faster.<br />
+                <span class="text-[#097737] mr-4">
+                  Try LeadCRM Templates <span class="text-[#097737] mr-4"> > </span> 
+                </span>
+              </p>
+              <div class="bg-white rounded-xl p-6 shadow">
+                <img src="./images/CRM-Data-Enrichment-1024x632.webp" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CTA ================= -->
+   <section class="py-16 md:py-10 px-4 text-gray-800 text-center">
+  <!-- Heading -->
+  <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold relative inline-flex items-center gap-3">
+    <img
+      src="./images/comment-icon.webp"
+      class="w-8 h-8"
+      alt=""
+    />
+    Our Supported LeadCRM
+  </h2>
+
+  <!-- Description -->
+  <p class="mt-4 max-w-7xl mx-auto text-sm sm:text-base md:text-lg leading-relaxed">
+    LeadCRM provides Native Integrations with popular CRM tools to make the
+    most out of your LinkedIn prospecting.
+    <br class="hidden sm:block" />
+    We don’t want you to miss any revenue opportunity on the internet!
+  </p>
+
+  <!-- Image -->
+  <div class="mt-10 flex justify-center">
+    <img
+      src="./images/leadcrm-supported-1536x636.png"
+      alt="Supported CRMs"
+      class="w-full max-w-6xl h-auto object-contain"
+    />
+  </div>
+
+  <!-- Button BELOW image -->
+  <div class="mt-8 flex justify-center">
+    <button
+      class="px-8 py-3 rounded-xl bg-lime-400 text-gray-900 font-semibold hover:bg-lime-500 transition"
+    >
+     Lets Integrate your CRM Now!
+    </button>
+  </div>
+</section>
+
+
+
+
+  <div class="absolute top-[4770px] right-32 ">
+    <img src="./images/5a1f91cd801069ae5888f02a4283dc7e93e60f73.png" class="w-32 h-58 mt-12 opacity-25 " />
+  </div>
+
+<section class="bg-[#eef3fb] py-12 md:py-16 px-4 mt-20">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Top Text -->
+    <p class="text-4xl lg:text-2xl md:text-base text-[#0b1c39] font-bold mb-4 text-start">
+      Join Thousands of Professionals Using LeadCRM
+    </p>
+
+    <!-- Banner Container -->
+    <div
+      class="relative rounded-2xl overflow-hidden px-1 h-auto text-white"
+      style="background-image: url('./images/your-banner-image.png'); background-size: cover; background-position: center;"
+    >
+
+      <!-- Overlay (optional for readability) -->
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0a6c8e]/90 to-[#0b8db6]/90"></div>
+
+      <!-- Content -->
+      <div class="relative z-1 text-center">
+        <img src="./images/Product hunt banner image.png" >
+      </div>
+
+      
+    </div>
+
+    <!-- CTA -->
+    <div class="flex justify-center mt-8">
+      <button
+        class="bg-[#9be44d] hover:bg-[#8bd63f] text-[#0b1c39] font-semibold px-8 py-3 rounded-xl flex items-center gap-2 transition"
+      >
+        Get Started Today
+        <span class="text-lg">→</span>
+      </button>
+    </div>
+
+  </div>
+</section>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-[#d9f4fb] text-[#0f172a] text-[14px]">
+      <!-- Main -->
+      <div
+        class="max-w-7xl mx-auto px-6 pt-14 pb-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-10"
+      >
+        <!-- Brand -->
+        <div>
+          <img src="/images/LeadCRM-logo.webp" class="w-[180px] -mt-1 mb-4" />
+
+          <p class="leading-[22px] max-w-xs">
+            LeadCRM is LinkedIn integration tool for your CRM.
+          </p>
+
+          <!-- Social -->
+          <div class="flex gap-3 mt-5">
+  <a href="https://www.facebook.com/LeadCRM/" target="_blank" class="w-16 h-8 flex items-center justify-center rounded-full bg-[#01b2d8] text-white hover:bg-[#0b1c39] transition">
+    <i class="fa-brands fa-facebook-f text-sm"></i>
+  </a>
+  <a href="https://twitter.com/LeadCRM_io" target="_blank" class="w-16 h-8 flex items-center justify-center rounded-full bg-[#01b2d8] text-white hover:bg-[#0b1c39] transition">
+    <i class="fa-brands fa-x-twitter text-sm"></i>
+  </a>
+  <a href="https://www.linkedin.com/company/leadcrm/" target="_blank" class="w-16 h-8 flex items-center justify-center rounded-full bg-[#01b2d8] text-white hover:bg-[#0b1c39] transition">
+    <i class="fa-brands fa-linkedin-in text-sm"></i>
+  </a>
+  <a href="https://www.instagram.com/leadcrm.io/" target="_blank" class="w-16 h-8 flex items-center justify-center rounded-full bg-[#01b2d8] text-white hover:bg-[#0b1c39] transition">
+    <i class="fa-brands fa-instagram text-sm"></i>
+  </a>
+</div>
+
+
+        </div>
+
+        <!-- Integrations -->
+        <div>
+          <h2 class="font-bold text-[16px] text-[#0b1c39] mb-4">
+            Integrations
+          </h2>
+          <ul class="space-y-3">
+            <li class="hover:text-[#01b2d8] cursor-pointer">HubSpot</li>
+            <li class="hover:text-[#01b2d8] cursor-pointer">Salesforce</li>
+            <li class="hover:text-[#01b2d8] cursor-pointer">Pipedrive</li>
+
+            <li
+              class="flex items-center gap-2 cursor-pointer hover:text-[#01b2d8]"
+            >
+              Close.io
+              <span
+                class="text-[11px] bg-green-200 text-green-900 px-2 py-[2px] rounded-full"
+              >
+                Coming Soon
+              </span>
+            </li>
+
+            <li
+              class="flex items-center gap-2 cursor-pointer hover:text-[#01b2d8]"
+            >
+              Insightly
+              <span
+                class="text-[11px] bg-green-200 text-green-900 px-2 py-[2px] rounded-full"
+              >
+                Coming Soon
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Alternative + Legal -->
+        <div>
+          <h2 class="font-bold text-[16px] text-[#0b1c39] mb-4">Alternative</h2>
+          <ul class="space-y-3">
+            <li class="hover:text-[#01b2d8] cursor-pointer">
+              Surfe VS LeadCRM
+            </li>
+            <li class="hover:text-[#01b2d8] cursor-pointer">
+              Linkmatch Alternative
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="font-bold text-[16px] text-[#0b1c39] mb-4">Legal</h2>
+          <ul class="space-y-3">
+            <li class="hover:text-[#01b2d8] cursor-pointer">Privacy Policy</li>
+            <li class="hover:text-[#01b2d8] cursor-pointer">Terms of Use</li>
+          </ul>
+        </div>
+
+        <!-- Empty spacer column (matches screenshot alignment) -->
+        <div></div>
+
+        <!-- Contact -->
+        <div>
+          <h2 class="font-bold text-[16px] text-[#0b1c39] mb-4">Contact Us</h2>
+
+          <ul class="space-y-3">
+            <li class="flex items-center gap-2 hover:text-[#01b2d8]">
+  <i class="fa-regular fa-envelope text-[#01b2d8]"></i>
+  <a
+    href="mailto:support@leadcrm.io"
+    class="cursor-pointer hover:underline"
+  >
+    support@leadcrm.io
+  </a>
+</li>
+
+<li class="flex items-center gap-2 hover:text-[#01b2d8]">
+  <i class="fa-solid fa-phone text-[#01b2d8]"></i>
+  <a
+    href="tel:+12315387466"
+    class="cursor-pointer hover:underline"
+  >
+    +1 231-538-7466
+  </a>
+</li>
+
+
+            <li
+              class="flex items-center gap-2 hover:text-[#01b2d8] cursor-pointer"
+            >
+              <i class="fa-regular fa-circle-question text-[#01b2d8]"></i>
+              Help Center
+            </li>
+          </ul>
+
+          <!-- Chrome Button -->
+          <div
+            class="mt-6 inline-flex items-center gap-3 bg-[#111827] text-white px-4 py-2 rounded-xl text-sm hover:bg-[#0b1c39] transition cursor-pointer"
+          >
+            Available in Chrome
+            <img
+              src="./images/chrome.png"
+              class="w-8 bg-white px-1 py-1 rounded-2xl"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="border-t border-[#bfe8f3]"></div>
+
+      <!-- Bottom -->
+      <div
+        class="max-w-7xl mx-auto px-6 py-4 text-center text-[12px] text-gray-500"
+      >
+        <p class="mb-1">
+          Disclaimer : LeadCRM is not endorsed or certified by LinkedIn. All
+          LinkedIn(tm) logos and trademarks displayed on this tool are property
+          of LinkedIn. LeadCRM is distributed AS IS. Your use of LeadCRM is at
+          your own risk.
+        </p>
+        <p>Copyright © 2025 LeadCRM. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!-- ================= JS ================= -->
+    <script src="script.js"></script>
+  </body>
+</html>
