@@ -36,7 +36,7 @@
 
   <body class="font-inter text-gray-800">
     <!-- ================= NAVBAR ================= -->
-    <header class="fixed w-full bg-white z-10 shadow-sm">
+    <header class="fixed w-full bg-white z-30 shadow-sm">
       <div
         class="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between"
       >
@@ -197,8 +197,10 @@
     <a href="#" class="font-medium">Contact</a>
 
     <!-- CTA -->
+     
+
     <button
-  class="flex items-center gap-2 border border-[#2D96BC] text-[#2D96BC] mx-auto px-40 py-2 rounded-lg"
+  class="flex items-center gap-2 border border-[#2D96BC] text-[#2D96BC] mx-auto px-28 py-2 rounded-lg"
 >
   <img src="./images/Frame.png" class="w-4 h-4" alt="Login icon" />
   <span class="text-md">Login</span>
@@ -391,7 +393,7 @@
 <!-- Floating CTA -->
 <div
   id="stickyCTA"
-  class="fixed bottom-8 left-1/2 -translate-x-1/2 z-40
+  class="fixed bottom-8 left-1/2 -translate-x-1/2 z-20
          w-[92%] max-w-5xl
          bg-white rounded-2xl shadow-xl
          px-6 py-6 md:px-10
@@ -415,7 +417,7 @@
         />
       </div>
 
-      <p class="text-sm md:text-base mx-auto mr-2  justify-center font-semibold text-gray-900">
+      <p class="text-sm md:text-base mx-auto mr-2 text-center  justify-center font-semibold text-gray-900">
         Join with our Thousands of professionals Now !
       </p>
     </div>
@@ -448,7 +450,7 @@
 
     <div class="flex items-center gap-2">
       <img
-        src="./images/imgi_76_no-credit-card-icon.webp"
+        src="./images/e45da7af4879d91311637dc4802186971cb3553a.png"
         class="w-5 h-5"
         alt=""
       />
@@ -968,7 +970,7 @@
       </div>
     </section>
 
-    <section class="bg-white py-20">
+    <section class="bg-white py-10">
       <div class="max-w-7xl mx-auto px-6">
         <!-- Heading -->
         <div class="text-center mb-12">
@@ -983,40 +985,61 @@
 
         <!-- Tabs -->
         <div
-          class="flex flex-wrap justify-center gap-10 space-x-16 border-b mb-10"
-        >
-          <button data-tab="enrichment" class="tab-btn active-tab flex mb-4">
-            <img
-              src="./images/201d689debd5b20c5bf4f606da681accea090bf7.png"
-              class="w-10 h-10 mx-2 -mt-1"
-            />
-            CRM Data Enrichment
-          </button>
+  class="flex flex-wrap justify-center gap-x-10 gap-y-4 border-b border-slate-200 mb-10"
+>
+  <!-- Tab 1 -->
+  <button
+    data-tab="enrichment"
+    class="tab-btn active-tab flex items-center gap-2 pb-4 border-b-2 border-primary-600 text-primary-600 font-semibold"
+  >
+    <img
+      src="./images/201d689debd5b20c5bf4f606da681accea090bf7.png"
+      class="w-8 h-8 sm:w-10 sm:h-10"
+      alt=""
+    />
+    <span class="text-sm sm:text-base">CRM Data Enrichment</span>
+  </button>
 
-          <button data-tab="sync" class="tab-btn flex mb-4">
-            <img
-              src="./images/730fa30c0870e5663abff213bc6047b6edd9c37e.png"
-              class="w-8 h-8 mx-2 -mt-1"
-            />
-            CRM Data Sync
-          </button>
+  <!-- Tab 2 -->
+  <button
+    data-tab="sync"
+    class="tab-btn flex items-center gap-2 pb-4 border-b-2 border-transparent text-slate-600 hover:text-slate-900 hover:border-slate-300 transition"
+  >
+    <img
+      src="./images/730fa30c0870e5663abff213bc6047b6edd9c37e.png"
+      class="w-7 h-7 sm:w-8 sm:h-8"
+      alt=""
+    />
+    <span class="text-sm sm:text-base">CRM Data Sync</span>
+  </button>
 
-          <button data-tab="bulk" class="tab-btn flex mb-4">
-            <img
-              src="./images/14b7d9142d74985b63e1d2f877c5bbb66a57d639.png"
-              class="w-10 h-10 mx-2 -mt-1"
-            />
-           Bulk Export & Enrichment
-          </button>
+  <!-- Tab 3 -->
+  <button
+    data-tab="bulk"
+    class="tab-btn flex items-center gap-2 pb-4 border-b-2 border-transparent text-slate-600 hover:text-slate-900 hover:border-slate-300 transition"
+  >
+    <img
+      src="./images/14b7d9142d74985b63e1d2f877c5bbb66a57d639.png"
+      class="w-8 h-8 sm:w-10 sm:h-10"
+      alt=""
+    />
+    <span class="text-sm sm:text-base">Bulk Export & Enrichment</span>
+  </button>
 
-          <button data-tab="ai" class="tab-btn flex mb-4">
-            <img
-              src="./images/imgi_45_feature-leadcrm-7.webp"
-              class="w-10 h-10 mx-2 -mt-1"
-            />
-            AI Productivity
-          </button>
-        </div>
+  <!-- Tab 4 -->
+  <button
+    data-tab="ai"
+    class="tab-btn flex items-center gap-2 pb-4 border-b-2 border-transparent text-slate-600 hover:text-slate-900 hover:border-slate-300 transition"
+  >
+    <img
+      src="./images/imgi_45_feature-leadcrm-7.webp"
+      class="w-8 h-8 sm:w-10 sm:h-10"
+      alt=""
+    />
+    <span class="text-sm sm:text-base">AI Productivity</span>
+  </button>
+</div>
+
 
         <!-- Info -->
         <p class="text-slate-600 mb-8">
@@ -1088,7 +1111,7 @@
                   />
                 </div>
                 <div class="bg-white rounded-xl p-2 shadow">
-                  <img src="./images/Frame 1171278339.png" />
+                  <img src="./images/CRM-Data-Sync.png" />
                 </div>
               </div>
             </div>
@@ -1101,7 +1124,7 @@
                 </span>
               </p>
               <div class="bg-white rounded-xl p-6 shadow">
-                <img src="./images/CRM-Data-Enrichment-1024x632.webp" />
+                <img src="./images/CRM-Data-Sync-1.png" />
               </div>
             </div>
           </div>
@@ -1122,7 +1145,7 @@
               <div class="grid md:grid-cols-1 gap-4 mt-6">
                 <div class="bg-white rounded-xl p-2 shadow">
                   <img
-                    src="./images/Group 2147224128.png"
+                    src="./images/Bulk-Export-Enrichment.png"
                     class="h-[350px] w-full object-contain"
                   />
                 </div>
@@ -1138,7 +1161,7 @@
                 </span>
               </p>
               <div class="bg-white rounded-xl p-6 shadow">
-                <img src="./images/CRM-Data-Enrichment-1024x632.webp" />
+                <img src="./images/Bulk-Export-Enrichment-1.png" />
               </div>
             </div>
           </div>
@@ -1175,7 +1198,7 @@
                 </span>
               </p>
               <div class="bg-white rounded-xl p-6 shadow">
-                <img src="./images/CRM-Data-Enrichment-1024x632.webp" />
+                <img src="./images/Template-imges-2-1024x705.webp" />
               </div>
             </div>
           </div>
@@ -1247,9 +1270,13 @@
       <div class="absolute inset-0 bg-gradient-to-r from-[#0a6c8e]/90 to-[#0b8db6]/90"></div>
 
       <!-- Content -->
-      <div class="relative z-1 text-center">
-        <img src="./images/Product hunt banner image.png" >
-      </div>
+      <div class="relative text-center z-0">
+  <img
+    src="./images/Product hunt banner image.png"
+    class="mx-auto w-full max-w-5xl"
+    alt="Banner"
+  />
+</div>
 
       
     </div>
@@ -1284,22 +1311,64 @@
 
           <!-- Social -->
           <div class="flex gap-3 mt-5">
-  <a href="https://www.facebook.com/LeadCRM/" target="_blank" class="w-16 h-8 flex items-center justify-center rounded-full bg-[#01b2d8] text-white hover:bg-[#0b1c39] transition">
-    <i class="fa-brands fa-facebook-f text-sm"></i>
+  <a
+    href="https://www.facebook.com/LeadCRM/"
+    target="_blank"
+    class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-9
+           flex items-center justify-center
+           rounded-full
+           bg-[#01b2d8] text-white
+           hover:bg-[#0b1c39]
+           transition"
+  >
+    <i class="fa-brands fa-facebook-f text-sm md:text-base"></i>
   </a>
-  <a href="https://twitter.com/LeadCRM_io" target="_blank" class="w-16 h-8 flex items-center justify-center rounded-full bg-[#01b2d8] text-white hover:bg-[#0b1c39] transition">
-    <i class="fa-brands fa-x-twitter text-sm"></i>
+
+  <a
+    href="https://twitter.com/LeadCRM_io"
+    target="_blank"
+    class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-9
+           flex items-center justify-center
+           rounded-full
+           bg-[#01b2d8] text-white
+           hover:bg-[#0b1c39]
+           transition"
+  >
+    <i class="fa-brands fa-x-twitter text-sm md:text-base"></i>
   </a>
-  <a href="https://www.linkedin.com/company/leadcrm/" target="_blank" class="w-16 h-8 flex items-center justify-center rounded-full bg-[#01b2d8] text-white hover:bg-[#0b1c39] transition">
-    <i class="fa-brands fa-linkedin-in text-sm"></i>
+
+  <a
+    href="https://www.linkedin.com/company/leadcrm/"
+    target="_blank"
+    class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-9
+           flex items-center justify-center
+           rounded-full
+           bg-[#01b2d8] text-white
+           hover:bg-[#0b1c39]
+           transition"
+  >
+    <i class="fa-brands fa-linkedin-in text-sm md:text-base"></i>
   </a>
-  <a href="https://www.instagram.com/leadcrm.io/" target="_blank" class="w-16 h-8 flex items-center justify-center rounded-full bg-[#01b2d8] text-white hover:bg-[#0b1c39] transition">
-    <i class="fa-brands fa-instagram text-sm"></i>
+
+  <a
+    href="https://www.instagram.com/leadcrm.io/"
+    target="_blank"
+    class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-9
+           flex items-center justify-center
+           rounded-full
+           bg-[#01b2d8] text-white
+           hover:bg-[#0b1c39]
+           transition"
+  >
+    <i class="fa-brands fa-instagram text-sm md:text-base"></i>
   </a>
 </div>
 
 
+
         </div>
+
+        <div></div>
 
         <!-- Integrations -->
         <div>
@@ -1355,9 +1424,6 @@
             <li class="hover:text-[#01b2d8] cursor-pointer">Terms of Use</li>
           </ul>
         </div>
-
-        <!-- Empty spacer column (matches screenshot alignment) -->
-        <div></div>
 
         <!-- Contact -->
         <div>

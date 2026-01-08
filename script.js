@@ -107,3 +107,15 @@ const btn = document.getElementById("menuBtn");
     const dropdown = document.getElementById(id);
     dropdown.classList.toggle("hidden");
   }
+
+
+  document.querySelectorAll(".tab-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".tab-btn").forEach(b =>
+      b.classList.remove("active-tab", "border-primary-600", "text-primary-600")
+    );
+
+    btn.classList.add("active-tab", "border-primary-600", "text-primary-600");
+  });
+});
+
