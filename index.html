@@ -37,137 +37,114 @@
   <body class="font-inter text-gray-800">
     <!-- ================= NAVBAR ================= -->
     <header class="fixed w-full bg-white z-30 shadow-sm">
-      <div
-        class="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between"
-      >
-        <div class="font-bold text-primary w-48 h-16">
-          <img src="./images/LeadCRM-logo.webp" />
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2 md:py-3 flex items-center justify-between">
+
+    <!-- Logo -->
+    <img
+      src="./images/LeadCRM-logo.webp"
+      alt="LeadCRM Logo"
+      class="w-28 sm:w-32 md:w-36 lg:w-40 xl:w-44 h-auto"
+    />
+
+    <!-- Desktop Navigation (lg+) -->
+    <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8 text-sm xl:text-base font-medium relative">
+      <!-- Product -->
+      <div class="group relative">
+        <button class="flex items-center gap-1 hover:text-primary">
+          Product
+          <svg class="w-4 h-4 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div class="absolute left-0 top-full mt-4 w-64 bg-white rounded-xl shadow-lg
+                    opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+          <ul class="p-4 space-y-3 text-sm text-gray-700">
+            <li class="hover:bg-gray-50 rounded-lg px-3 py-2">CRM Data Enrichment</li>
+            <li class="hover:bg-gray-50 rounded-lg px-3 py-2">CRM Data Sync</li>
+            <li class="hover:bg-gray-50 rounded-lg px-3 py-2">Bulk Export & Enrichment</li>
+            <li class="hover:bg-gray-50 rounded-lg px-3 py-2">AI Productivity</li>
+          </ul>
         </div>
-
-        <nav class="hidden md:flex items-center space-x-8 font-medium relative">
-  <!-- Product Dropdown -->
-  <div class="group relative">
-    <button class="flex items-center gap-1 hover:text-primary">
-      Product
-      <svg class="w-4 h-4 mt-1" fill="none" stroke="currentColor" stroke-width="2"
-        viewBox="0 0 24 24">
-        <path d="M19 9l-7 7-7-7" />
-      </svg>
-    </button>
-
-    <!-- Dropdown -->
-    <div
-      class="absolute left-0 top-full mt-4 w-64
-             bg-white rounded-xl shadow-lg
-             opacity-0 invisible
-             group-hover:opacity-100 group-hover:visible
-             transition-all duration-200 z-50"
-    >
-      <ul class="p-4 space-y-3 text-sm text-gray-700">
-        <li class="hover:bg-gray-50 rounded-lg px-3 py-2">
-          CRM Data Enrichment
-        </li>
-        <li class="hover:bg-gray-50 rounded-lg px-3 py-2">
-          CRM Data Sync
-        </li>
-        <li class="hover:bg-gray-50 rounded-lg px-3 py-2">
-          Bulk Export & Enrichment
-        </li>
-        <li class="hover:bg-gray-50 rounded-lg px-3 py-2">
-          AI Productivity
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Features Dropdown -->
-  <div class="group relative">
-    <button class="flex items-center gap-1 hover:text-primary">
-      Pricing
-      <svg class="w-4 h-4 mt-1" fill="none" stroke="currentColor" stroke-width="2"
-        viewBox="0 0 24 24">
-        <path d="M19 9l-7 7-7-7" />
-      </svg>
-    </button>
-
-    <div
-      class="absolute left-0 top-full mt-4 w-56
-             bg-white rounded-xl shadow-lg
-             opacity-0 invisible
-             group-hover:opacity-100 group-hover:visible
-             transition-all duration-200 z-50"
-    >
-      <ul class="p-4 space-y-3 text-sm text-gray-700">
-        <li class="hover:bg-gray-50 rounded-lg px-3 py-2">Email Finder</li>
-        <li class="hover:bg-gray-50 rounded-lg px-3 py-2">Waterfall Enrichment</li>
-        <li class="hover:bg-gray-50 rounded-lg px-3 py-2">Custom Field Mapping</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Normal Links -->
-  <a href="#" class="hover:text-primary">Resources</a>
-<!-- Company Dropdown (Desktop) -->
-<div class="group relative">
-  <button class="flex items-center gap-1 hover:text-primary">
-    Company
-    <svg class="w-4 h-4 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-      <path d="M19 9l-7 7-7-7" />
-    </svg>
-  </button>
-
-  <div
-    class="absolute left-0 top-full mt-4 w-56
-           bg-white rounded-xl shadow-lg
-           opacity-0 invisible
-           group-hover:opacity-100 group-hover:visible
-           transition-all duration-200 z-50"
-  >
-    <ul class="p-4 space-y-3 text-sm text-gray-700">
-      <li class="hover:bg-gray-50 rounded-lg px-3 py-2"><a href="#">About Us</a></li>
-      <li class="hover:bg-gray-50 rounded-lg px-3 py-2"><a href="#">Careers</a></li>
-      <li class="hover:bg-gray-50 rounded-lg px-3 py-2"><a href="#">Team</a></li>
-      <li class="hover:bg-gray-50 rounded-lg px-3 py-2"><a href="#">Contact</a></li>
-    </ul>
-  </div>
-</div>
-</nav>
-
-
-        <div class="hidden md:flex gap-4">
-          <button
-            class="bg-[#2D96BC] text-white hover:bg-gray-800 hover:text-white px-6 py-3 rounded-lg text-md"
-          >
-            Get Your Free Account
-          </button>
-          <button
-  class="flex items-center gap-2 border border-[#2D96BC] text-[#2D96BC] px-4 py-2 rounded-lg"
->
-  <img src="./images/Frame.png" class="w-4 h-4" alt="Login icon" />
-  <span class="text-md">Login</span>
-</button>
-
-        </div>
-
-        <!-- Mobile Menu Button -->
-        <button id="menuBtn" class="md:hidden">☰</button>
       </div>
 
-      <!-- Mobile Menu -->
-      <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
-  <div class="flex flex-col px-6 py-4 space-y-4 text-gray-800">
+      <!-- Pricing -->
+      <div class="group relative">
+        <button class="flex items-center gap-1 hover:text-primary">
+          Pricing
+          <svg class="w-4 h-4 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div class="absolute left-0 top-full mt-4 w-56 bg-white rounded-xl shadow-lg
+                    opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+          <ul class="p-4 space-y-3 text-sm text-gray-700">
+            <li class="hover:bg-gray-50 rounded-lg px-3 py-2">Email Finder</li>
+            <li class="hover:bg-gray-50 rounded-lg px-3 py-2">Waterfall Enrichment</li>
+            <li class="hover:bg-gray-50 rounded-lg px-3 py-2">Custom Field Mapping</li>
+          </ul>
+        </div>
+      </div>
 
-    <!-- Product Dropdown -->
+      <a href="#" class="hover:text-primary">Resources</a>
+
+      <!-- Company -->
+      <div class="group relative">
+        <button class="flex items-center gap-1 hover:text-primary">
+          Company
+          <svg class="w-4 h-4 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div class="absolute left-0 top-full mt-4 w-56 bg-white rounded-xl shadow-lg
+                    opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+          <ul class="p-4 space-y-3 text-sm text-gray-700">
+            <li class="hover:bg-gray-50 rounded-lg px-3 py-2">About Us</li>
+            <li class="hover:bg-gray-50 rounded-lg px-3 py-2">Careers</li>
+            <li class="hover:bg-gray-50 rounded-lg px-3 py-2">Team</li>
+            <li class="hover:bg-gray-50 rounded-lg px-3 py-2">Contact</li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Right Section -->
+    <div class="flex items-center gap-3">
+
+      <!-- CTA Buttons (Tablet + Desktop) -->
+      <div class="hidden md:flex items-center gap-3">
+        <button class="bg-[#2D96BC] text-white hover:bg-gray-800 px-4 py-2 rounded-lg text-sm">
+          Get Your Free Account
+        </button>
+        <button class="flex items-center gap-2 border border-[#2D96BC] text-[#2D96BC] px-3 py-2 rounded-lg text-sm">
+          <img src="./images/Frame.png" class="w-4 h-4" />
+          Login
+        </button>
+      </div>
+
+      <!-- Hamburger -->
+      <button id="menuBtn" class="lg:hidden text-2xl px-2">☰</button>
+    </div>
+  </div>
+
+  <!-- Tablet + Mobile Menu -->
+ <!-- Tablet + Mobile Menu -->
+<div id="mobileMenu" class="hidden lg:hidden bg-white border-t">
+  <div class="px-6 py-5 space-y-6 text-gray-800">
+
+    <!-- Product -->
     <div>
       <button
-        onclick="toggleDropdown('productDropdown')"
-        class="w-full flex items-center justify-between font-medium"
+        onclick="toggleDropdown('mProduct')"
+        class="w-full flex justify-between items-center font-medium text-lg"
       >
         Product
-        <span id="productIcon">+</span>
+        <span class="text-xl">+</span>
       </button>
 
-      <div id="productDropdown" class="hidden pl-4 mt-2 space-y-2 text-sm text-gray-600">
+      <div
+        id="mProduct"
+        class="hidden mt-3 pl-4 flex flex-col gap-2 text-sm text-gray-600"
+      >
         <a href="#" class="block">CRM Data Enrichment</a>
         <a href="#" class="block">CRM Data Sync</a>
         <a href="#" class="block">Bulk Export & Enrichment</a>
@@ -175,39 +152,67 @@
       </div>
     </div>
 
-    <!-- Features Dropdown -->
+    <!-- Pricing -->
     <div>
       <button
-        onclick="toggleDropdown('featuresDropdown')"
-        class="w-full flex items-center justify-between font-medium"
+        onclick="toggleDropdown('mPricing')"
+        class="w-full flex justify-between items-center font-medium text-lg"
       >
-        Features
-        <span id="featuresIcon">+</span>
+        Pricing
+        <span class="text-xl">+</span>
       </button>
 
-      <div id="featuresDropdown" class="hidden pl-4 mt-2 space-y-2 text-sm text-gray-600">
+      <div
+        id="mPricing"
+        class="hidden mt-3 pl-4 flex flex-col gap-2 text-sm text-gray-600"
+      >
         <a href="#" class="block">Email Finder</a>
         <a href="#" class="block">Waterfall Enrichment</a>
         <a href="#" class="block">Custom Field Mapping</a>
       </div>
     </div>
 
-    <!-- Normal Links -->
-    <a href="#" class="font-medium">Pricing</a>
-    <a href="#" class="font-medium">Contact</a>
+    <!-- Resources -->
+    <a href="#" class="font-medium text-lg block">
+      Resources
+    </a>
 
-    <!-- CTA -->
-     
+    <!-- Company -->
+    <div>
+      <button
+        onclick="toggleDropdown('mCompany')"
+        class="w-full flex justify-between items-center font-medium text-lg"
+      >
+        Company
+        <span class="text-xl">+</span>
+      </button>
 
+      <div
+        id="mCompany"
+        class="hidden mt-3 pl-4 flex flex-col gap-2 text-sm text-gray-600"
+      >
+        <a href="#" class="block">About Us</a>
+        <a href="#" class="block">Careers</a>
+        <a href="#" class="block">Team</a>
+        <a href="#" class="block">Contact</a>
+      </div>
+    </div>
+
+    <!-- Login -->
     <button
-  class="flex items-center gap-2 border border-[#2D96BC] text-[#2D96BC] mx-auto px-28 py-2 rounded-lg"
->
-  <img src="./images/Frame.png" class="w-4 h-4" alt="Login icon" />
-  <span class="text-md">Login</span>
+      class="w-full border border-[#2D96BC] text-[#2D96BC] py-2 rounded-lg flex justify-center gap-2 text-sm"
+    >
+      <img src="./images/Frame.png" class="w-4 h-4" />
+      Login
+    </button>
+
   </div>
 </div>
 
-    </header>
+</header>
+
+
+
 
     <!-- ================= HERO ================= -->
     <section
